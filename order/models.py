@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
-from ..cafe.models import *
+from django.utils.translation import gettext as _
+from cafe.models import *
 
 # Create your models here.
 class Recepite(models.Model):
@@ -11,7 +12,7 @@ class Recepite(models.Model):
     time_stamp = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self) -> str:
-        return f"{self.table_number.id}: {self.total_price}$ - {self.time_stamp}"
+        return f"{self.id}) Table{self.table_number.id}: {self.total_price}$ - {self.time_stamp}"
 
 
 class Order(models.Model):

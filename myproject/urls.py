@@ -21,7 +21,10 @@ from django.conf.urls.i18n import i18n_patterns
 from cafe.views import *
 from order.views import *
 
-urlpatterns = i18n_patterns(
+# urlpatterns = i18n_patterns(
+#     path('admin/', admin.site.urls),
+#     prefix_default_language=True
+# ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = [
     path('admin/', admin.site.urls),
-    prefix_default_language=True
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

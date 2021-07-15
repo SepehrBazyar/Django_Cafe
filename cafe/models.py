@@ -24,7 +24,7 @@ class MenuItem(models.Model):
     status = models.BooleanField(default=True)
 
     def __str__(self) -> str:
-        return f"{_(self.title)}: {int(self.price * (1 - (self.discount / 100)))}$"
+        return f"{_(self.title_fa)}: {int(self.price * (1 - (self.discount / 100)))}$"
 
 
 class Table(models.Model):
