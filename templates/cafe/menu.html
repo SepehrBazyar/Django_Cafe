@@ -18,10 +18,10 @@
         {% for item in items %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ item.title_fa }}</td>
+                <td>{{ item.title }}</td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.discount }}</td>
-                <td>{{ item.category.title_fa }}</td>
+                <td>{{ item.category.title }}</td>
             </tr>
         {% endfor %}
     </table>

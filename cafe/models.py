@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext as _
+from myproject.settings import LANGUAGE_CODE
 
 # Create your models here.
 class Category(models.Model):
@@ -10,8 +11,12 @@ class Category(models.Model):
     root = models.ForeignKey("self", on_delete=models.CASCADE,
                                 blank=True, null=True, default=None)  # self relation
 
+    @property
+    def title(self):
+        return self.title_fa if LANGUAGE_CODE == 'fa' else self.title_en
+
     def __str__(self) -> str:
-        return f"{_(self.title_fa)}"
+        return f"{_(self.title)}"
 
 
 class MenuItem(models.Model):
@@ -23,8 +28,12 @@ class MenuItem(models.Model):
     discount = models.IntegerField(default=0)
     status = models.BooleanField(default=True)
 
+    @property
+    def title(self):
+        return self.title_fa if LANGUAGE_CODE == 'fa' else self.title_en
+
     def __str__(self) -> str:
-        return f"{_(self.title_fa)}: {int(self.price * (1 - (self.discount / 100)))}$"
+        return f"{_(self.title)}: {int(self.price * (1 - (self.discount / 100)))}$"
 
 
 class Table(models.Model):
