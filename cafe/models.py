@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext as _
-from myproject.settings import LANGUAGE_CODE
+from myproject.settings import LANGUAGE_CODE, MEDIA_ROOT
 from .validators import *
 
 # Create your models here.
@@ -48,7 +48,7 @@ class MenuItem(models.Model):
     discount = models.IntegerField(default=0, verbose_name=_("Discount Percent"),
         help_text=_("Enter Discount Percent Between 0 & 100"), validators=[discount_validator])
     image = models.FileField(upload_to="cafe/menu_items/", verbose_name=_("Picture"),
-        default="settings.MEDIA_ROOT/cafe/default.jpg",
+        default=f"{MEDIA_ROOT}/cafe/menu_items/default.jpg",
         help_text=_("Please Upload Picture of Item for Show in Detail Page"))
     status = models.CharField(max_length=1, default='T', verbose_name=_("Status"),
                                 choices=[('T', _('Available')), ('F', _('Unavailable'))],
