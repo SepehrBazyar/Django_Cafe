@@ -1,3 +1,4 @@
+from functools import cached_property
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -37,7 +38,12 @@ class MenuItem(models.Model):
     Model of Menu Items in Cafe Some Fields & Foreign Key to Category
     """
 
-    category = models.ForeignKey(Category, on_delete=models.CASCADE,
+    STATUSES = {
+        'T': _("Available"),
+        'F': _("Unavailable"),
+    }
+
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="items",
         verbose_name=_("Category"), help_text=_("Please Select Category of Item"))
     title_fa = models.CharField(max_length=50, unique=True, verbose_name=_("Persian Title"),
                                 help_text=_("Enter Title of Item to Persian Language"))
@@ -48,10 +54,10 @@ class MenuItem(models.Model):
     discount = models.IntegerField(default=0, verbose_name=_("Discount Percent"),
         help_text=_("Enter Discount Percent Between 0 & 100"), validators=[discount_validator])
     image = models.FileField(upload_to="cafe/menu_items/", verbose_name=_("Picture"),
-        default=f"{MEDIA_ROOT}/cafe/menu_items/default.jpg",
+        default="cafe/menu_items/default.jpg",
         help_text=_("Please Upload Picture of Item for Show in Detail Page"))
     status = models.CharField(max_length=1, default='T', verbose_name=_("Status"),
-                                choices=[('T', _('Available')), ('F', _('Unavailable'))],
+                                choices=[(key, value) for key, value in STATUSES.items()],
                                 help_text=_("Status of Item Available or Unavailable"))
     create_timestamp = models.DateTimeField(auto_now_add=True)
     modify_timestamp = models.DateTimeField(auto_now=True)
@@ -72,6 +78,31 @@ class MenuItem(models.Model):
 
         return int(self.price * (1 - (self.discount / 100)))
 
+    def change_price(self, new_price:int):
+        """
+        Change Price of Item to New Price
+        """
+
+        self.price = new_price
+        self.save()
+
+    def change_discount(self, new_discount: int):
+        """
+        Change Discount of Item to New Discount by Percent Between 0 & 100
+        """
+
+        self.discount = new_discount
+        self.save()
+    
+    def change_status(self, new_status: str):
+        """
+        Change Status of Item by Available or Unavailable in Archive Product Menu
+        """
+
+        REVERSE = {value: key for key, value in self.STATUSES}
+        self.status = REVERSE.get(new_status, self.status)
+        self.save()
+
     def __str__(self) -> str:
         return f"{self.title}: {self.final_price}$"
 
@@ -81,15 +112,29 @@ class Table(models.Model):
     Model of Tables in Cafe Some Fields for Foreign Key from Recepites
     """
 
-    capacity = models.IntegerField(verbose_name=_("Capacity"), validators=[price_validator],
+    STATUSES = {
+        'T': _("Empty"),
+        'F': _("Full"),
+    }
+
+    capacity = models.IntegerField(verbose_name=_("Capacity"), validators=[capacity_validator],
                                     help_text=_("Please Enter Capacity of Table by Person"))
     table_name = models.CharField(max_length=2, unique=True, verbose_name=_("Name of Table"),
                                     help_text=_("Please Enter Name for Table Unique Code"))
     status = models.CharField(max_length=1, default='T', verbose_name=_("Status"),
-                                choices=[('T', _('Empty')), ('F', _('Full'))],
+                                choices=[(key, value) for key, value in STATUSES.items()],
                                 help_text=_("Status of Table Empty or Full Capacity"))
     create_timestamp = models.DateTimeField(auto_now_add=True)
     modify_timestamp = models.DateTimeField(auto_now=True)
 
+    def change_status(self, new_status: str):
+        """
+        Change Status of Table with Recepite is Full and without it is Empty
+        """
+
+        REVERSE = {value: key for key, value in self.STATUSES}
+        self.status = REVERSE.get(new_status, self.status)
+        self.save()
+
     def __str__(self) -> str:
-        return f"{self.id}) {self.table_name}({self.capacity} Person) - {self.status}"
+        return f"{self.id}) {self.table_name}({self.capacity} {_('Person')}) - {self.STATUSES[self.status]}"

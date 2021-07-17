@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 16:04+0430\n"
+"POT-Creation-Date: 2021-07-17 23:30+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,111 +18,111 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\cafe\models.py:14 .\cafe\models.py:42
+#: .\cafe\models.py:15 .\cafe\models.py:48
 msgid "Persian Title"
 msgstr "عنوان فارسی"
 
-#: .\cafe\models.py:15
+#: .\cafe\models.py:16
 msgid "Enter Title of Category to Persian Language"
 msgstr "لطفا عنوان دسته بندی را به فارسی وارد نمایید"
 
-#: .\cafe\models.py:16 .\cafe\models.py:44
+#: .\cafe\models.py:17 .\cafe\models.py:50
 msgid "English Title"
 msgstr "عنوان انگلیسی"
 
-#: .\cafe\models.py:17
+#: .\cafe\models.py:18
 msgid "Enter Title of Category to English Language"
 msgstr "لطفا عنوان دسته بندی را به انگلیسی وارد نمایید"
 
-#: .\cafe\models.py:19
+#: .\cafe\models.py:20
 msgid "Sub Category"
 msgstr "دسته اصلی"
 
-#: .\cafe\models.py:19
+#: .\cafe\models.py:20
 msgid "Select Sub Category"
 msgstr "لطفا دسته اصلی را انتخاب نمایید"
 
-#: .\cafe\models.py:41 .\templates\cafe\menu.html:17
-msgid "Category"
-msgstr "دسته بندی"
-
-#: .\cafe\models.py:41
-msgid "Please Select Category of Item"
-msgstr "لطفا دسته بندی محصول را انتخاب نمایید"
-
-#: .\cafe\models.py:43
-msgid "Enter Title of Item to Persian Language"
-msgstr "لطفا عنوان محصول را به زبان فارسی وارد نمایید"
-
-#: .\cafe\models.py:45
-msgid "Enter Title of Item to English Language"
-msgstr "لطفا عنوان محصول را به زبان انگلیسی وارد نمایید"
-
-#: .\cafe\models.py:46 .\templates\cafe\menu.html:15
-msgid "Price"
-msgstr "قیمت"
-
-#: .\cafe\models.py:46
-msgid "Please Enter Price"
-msgstr "لطفا قیمت را به واحد تومان وارد نمایید"
-
-#: .\cafe\models.py:48
-msgid "Discount Percent"
-msgstr "درصد تخفیف"
-
-#: .\cafe\models.py:49
-msgid "Enter Discount Percent Between 0 & 100"
-msgstr "لطفا درصد تخفیف را عددی بین صفر الی صد وارد نمایید"
-
-#: .\cafe\models.py:50
-msgid "Picture"
-msgstr "تصویر"
-
-#: .\cafe\models.py:52
-msgid "Please Upload Picture of Item for Show in Detail Page"
-msgstr "لطفا عکسی برای نمایش این محصول بارگذاری نمایید"
-
-#: .\cafe\models.py:53 .\cafe\models.py:88
-msgid "Status"
-msgstr "وضعیت"
-
-#: .\cafe\models.py:54
+#: .\cafe\models.py:42
 msgid "Available"
 msgstr "موجود"
 
-#: .\cafe\models.py:54
+#: .\cafe\models.py:43
 msgid "Unavailable"
 msgstr "ناموجود"
 
+#: .\cafe\models.py:47 .\templates\cafe\menu.html:17
+msgid "Category"
+msgstr "دسته بندی"
+
+#: .\cafe\models.py:47
+msgid "Please Select Category of Item"
+msgstr "لطفا دسته بندی محصول را انتخاب نمایید"
+
+#: .\cafe\models.py:49
+msgid "Enter Title of Item to Persian Language"
+msgstr "لطفا عنوان محصول را به زبان فارسی وارد نمایید"
+
+#: .\cafe\models.py:51
+msgid "Enter Title of Item to English Language"
+msgstr "لطفا عنوان محصول را به زبان انگلیسی وارد نمایید"
+
+#: .\cafe\models.py:52 .\templates\cafe\menu.html:15
+msgid "Price"
+msgstr "قیمت"
+
+#: .\cafe\models.py:52
+msgid "Please Enter Price"
+msgstr "لطفا قیمت را به واحد تومان وارد نمایید"
+
+#: .\cafe\models.py:54
+msgid "Discount Percent"
+msgstr "درصد تخفیف"
+
 #: .\cafe\models.py:55
+msgid "Enter Discount Percent Between 0 & 100"
+msgstr "لطفا درصد تخفیف را عددی بین صفر الی صد وارد نمایید"
+
+#: .\cafe\models.py:56
+msgid "Picture"
+msgstr "تصویر"
+
+#: .\cafe\models.py:58
+msgid "Please Upload Picture of Item for Show in Detail Page"
+msgstr "لطفا عکسی برای نمایش این محصول بارگذاری نمایید"
+
+#: .\cafe\models.py:59 .\cafe\models.py:124
+msgid "Status"
+msgstr "وضعیت"
+
+#: .\cafe\models.py:61
 msgid "Status of Item Available or Unavailable"
 msgstr "وضعیت محصول موجود یا ناموجود"
 
-#: .\cafe\models.py:84
-msgid "Capacity"
-msgstr "ظرفیت"
-
-#: .\cafe\models.py:85
-msgid "Please Enter Capacity of Table by Person"
-msgstr "لطفا ظرفیت میز را برحسب تعداد نفرات وارد نمایید"
-
-#: .\cafe\models.py:86
-msgid "Name of Table"
-msgstr "نام میز"
-
-#: .\cafe\models.py:87
-msgid "Please Enter Name for Table Unique Code"
-msgstr "لطفا نام منحصر بفردی برای شناسایی میز وارد نمایید"
-
-#: .\cafe\models.py:89
+#: .\cafe\models.py:116
 msgid "Empty"
 msgstr "خالی"
 
-#: .\cafe\models.py:89
+#: .\cafe\models.py:117
 msgid "Full"
 msgstr "پر"
 
-#: .\cafe\models.py:90
+#: .\cafe\models.py:120
+msgid "Capacity"
+msgstr "ظرفیت"
+
+#: .\cafe\models.py:121
+msgid "Please Enter Capacity of Table by Person"
+msgstr "لطفا ظرفیت میز را برحسب تعداد نفرات وارد نمایید"
+
+#: .\cafe\models.py:122
+msgid "Name of Table"
+msgstr "نام میز"
+
+#: .\cafe\models.py:123
+msgid "Please Enter Name for Table Unique Code"
+msgstr "لطفا نام منحصر بفردی برای شناسایی میز وارد نمایید"
+
+#: .\cafe\models.py:126
 msgid "Status of Table Empty or Full Capacity"
 msgstr "وضعیت میز پر یا خالی"
 
@@ -133,6 +133,10 @@ msgstr "قیمت محصول نمی تواند عددی منفی باشد"
 #: .\cafe\validators.py:18
 msgid "Discount Value Must Number Between 0 & 100"
 msgstr "درصد تخفیف می بایست مابین صفر الی صد باشد"
+
+#: .\cafe\validators.py:26
+msgid "Table Capacity Can't be Zero Negative Number"
+msgstr "ظرفیت میز نمی تواند منفی یا صفر باشد"
 
 #: .\templates\cafe\menu.html:7
 msgid "Menu"
@@ -145,6 +149,30 @@ msgstr "نام محصول"
 #: .\templates\cafe\menu.html:16
 msgid "Discount"
 msgstr "درصد تخفیف"
+
+#: .\templates\cafe\menu.html:34
+msgid "First"
+msgstr "نخستین"
+
+#: .\templates\cafe\menu.html:35
+msgid "Previous"
+msgstr "قبلی"
+
+#: .\templates\cafe\menu.html:39
+msgid "Page"
+msgstr "صفحه"
+
+#: .\templates\cafe\menu.html:39
+msgid "of"
+msgstr "از"
+
+#: .\templates\cafe\menu.html:43
+msgid "Next"
+msgstr "بعدی"
+
+#: .\templates\cafe\menu.html:44
+msgid "Last"
+msgstr "آخرین"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:7
 msgid "Messages"

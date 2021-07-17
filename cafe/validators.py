@@ -16,3 +16,11 @@ def discount_validator(value: int):
 
     if not 0 <= value <= 100:
         raise ValidationError(_("Discount Value Must Number Between 0 & 100"))
+
+def capacity_validator(value: int):
+    """
+    Validator Function for Capacity of Table to Check not Zero or Negative Numbers
+    """
+
+    if value < 1:
+        raise ValidationError(_("Table Capacity Can't be Zero Negative Number"))
