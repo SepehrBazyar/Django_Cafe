@@ -11,7 +11,7 @@
     <!-- Tables List -->
     <div style="text-align: center;">
         <span>
-            <a href="tables/">{% trans "New Order" %}</a>
+            <a href="/tables/">{% trans "New Order" %}</a>
         </span>
     </div>
 
@@ -26,10 +26,10 @@
         {% for item in items %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td><a href="media/{{ item.image }}">{{ item.title }}</a></td>
+                <td><a href="/media/{{ item.image }}">{{ item.title }}</a></td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.discount }}</td>
-                <td><a href="category/{{ item.category.title_en }}">{{ item.category.title }}</a></td>
+                <td><a href="/category/{{ item.category.title_en }}">{{ item.category.title }}</a></td>
             </tr>
         {% endfor %}
     </table>
