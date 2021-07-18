@@ -34,7 +34,7 @@ class Order(models.Model):
         Change Status of Order from Cooking to Serving after Deliver to Cotumers
         """
 
-        REVERSE = {value: key for key, value in self.STATUSES}
+        REVERSE = {value: key for key, value in self.STATUSES.items()}
         self.status = REVERSE.get(new_status, self.status)
         self.save()
 
@@ -47,7 +47,8 @@ class Order(models.Model):
         return self.__class__.STATUSES[self.status]
 
     def __str__(self) -> str:
-        return f"{self.recepite.id}: {self.item.title} - {self.count} - {self.status_name}"
+        num = _("Numbers")
+        return f"{self.recepite.id}: {self.item.title} - {self.count} {num} - {self.status_name}"
 
 class Recepite(models.Model):
     """
@@ -103,10 +104,14 @@ class Recepite(models.Model):
         Change Status of Recepite after Paid Price and Empty Tables for Next Recepites
         """
 
-        REVERSE = {value: key for key, value in self.STATUSES}
+        REVERSE = {value: key for key, value in self.STATUSES.items()}
         self.status = REVERSE.get(new_status, self.status)
+        if self.status != 'U':
+            self.table.change_status(_("Empty"))
+        else:
+            self.table.change_status(_("Full"))
         self.save()
 
     def __str__(self) -> str:
         tab = _("Table")
-        return f"{self.id}) {tab} {self.table.id} - {self.final_price} - {self.status_name}"
+        return f"{self.id}) {tab} {self.table.id} - {self.final_price}$ - {self.status_name}"

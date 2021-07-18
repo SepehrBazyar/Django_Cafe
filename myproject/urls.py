@@ -30,4 +30,6 @@ urlpatterns = [
     path('', MenuView.as_view(), name="menu"),
     path('category/<str:title>/', CategoryView.as_view(), name="category"),
     path('tables/', TableView.as_view(), name="tables"),
+    path('new/<int:table>/', NewRecepiteView.as_view(), name="new_recepite"),
+    path('recepite/<int:id>/', AddOrderView.as_view(), name="add_order"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

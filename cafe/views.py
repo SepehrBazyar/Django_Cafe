@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.views import View, generic
+from django.urls import reverse
 from django.utils.translation import gettext as _
 from cafe.models import Category, MenuItem, Table
 

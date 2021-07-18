@@ -99,7 +99,7 @@ class MenuItem(models.Model):
         Change Status of Item by Available or Unavailable in Archive Product Menu
         """
 
-        REVERSE = {value: key for key, value in self.STATUSES}
+        REVERSE = {value: key for key, value in self.STATUSES.items()}
         self.status = REVERSE.get(new_status, self.status)
         self.save()
 
@@ -132,7 +132,7 @@ class Table(models.Model):
         Change Status of Table with Recepite is Full and without it is Empty
         """
 
-        REVERSE = {value: key for key, value in self.STATUSES}
+        REVERSE = {value: key for key, value in self.STATUSES.items()}
         self.status = REVERSE.get(new_status, self.status)
         self.save()
 

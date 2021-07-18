@@ -17,7 +17,7 @@
         </tr>
         {% for table in tables %}
             <tr>
-                <td>{{ table.id }}</td>
+                <td><a href="/new/{{ table.id }}">{{ table.id }}</a></td>
                 <td>{{ table.table_name }}</td>
                 <td>{{ table.capacity }}</td>
                 <td>{{ table.status_name }}</td>
