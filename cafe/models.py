@@ -136,6 +136,14 @@ class Table(models.Model):
         self.status = REVERSE.get(new_status, self.status)
         self.save()
 
+    @property
+    def status_name(self) -> str:
+        """
+        Get Human Readable Status Name
+        """
+
+        return self.STATUSES[self.status]
+
     def __str__(self) -> str:
         person = _("Person")
-        return f"{self.id}) {self.table_name}({self.capacity} {person}) - {self.STATUSES[self.status]}"
+        return f"{self.id}) {self.table_name}({self.capacity} {person}) - {self.status_name}"

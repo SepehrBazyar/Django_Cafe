@@ -29,4 +29,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MenuView.as_view(), name="menu"),
     path('category/<str:title>/', CategoryView.as_view(), name="category"),
+    path('tables/', TableView.as_view(), name="tables"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

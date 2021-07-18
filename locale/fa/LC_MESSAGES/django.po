@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-18 11:51+0430\n"
+"POT-Creation-Date: 2021-07-18 13:57+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "موجود"
 msgid "Unavailable"
 msgstr "ناموجود"
 
-#: .\cafe\models.py:47 .\templates\cafe\menu.html:17
+#: .\cafe\models.py:47 .\templates\cafe\menu.html:24
 msgid "Category"
 msgstr "دسته بندی"
 
@@ -66,7 +66,7 @@ msgstr "لطفا عنوان محصول را به زبان فارسی وارد ن
 msgid "Enter Title of Item to English Language"
 msgstr "لطفا عنوان محصول را به زبان انگلیسی وارد نمایید"
 
-#: .\cafe\models.py:52 .\templates\cafe\menu.html:15
+#: .\cafe\models.py:52 .\templates\cafe\menu.html:22
 msgid "Price"
 msgstr "قیمت"
 
@@ -90,7 +90,7 @@ msgstr "تصویر"
 msgid "Please Upload Picture of Item for Show in Detail Page"
 msgstr "لطفا عکسی برای نمایش این محصول بارگذاری نمایید"
 
-#: .\cafe\models.py:59 .\cafe\models.py:124
+#: .\cafe\models.py:59 .\cafe\models.py:124 .\templates\cafe\tables.html:15
 msgid "Status"
 msgstr "وضعیت"
 
@@ -114,7 +114,7 @@ msgstr "ظرفیت"
 msgid "Please Enter Capacity of Table by Person"
 msgstr "لطفا ظرفیت میز را برحسب تعداد نفرات وارد نمایید"
 
-#: .\cafe\models.py:122
+#: .\cafe\models.py:122 .\templates\cafe\tables.html:14
 msgid "Name of Table"
 msgstr "نام میز"
 
@@ -147,36 +147,48 @@ msgid "Menu"
 msgstr "فهرست"
 
 #: .\templates\cafe\menu.html:14
+msgid "New Order"
+msgstr "ثبت سفارش جدید"
+
+#: .\templates\cafe\menu.html:21
 msgid "Name"
 msgstr "نام محصول"
 
-#: .\templates\cafe\menu.html:16
+#: .\templates\cafe\menu.html:23
 msgid "Discount"
 msgstr "درصد تخفیف"
 
-#: .\templates\cafe\menu.html:34
+#: .\templates\cafe\menu.html:41 .\templates\cafe\tables.html:30
 msgid "First"
 msgstr "نخستین"
 
-#: .\templates\cafe\menu.html:35
+#: .\templates\cafe\menu.html:42 .\templates\cafe\tables.html:31
 msgid "Previous"
 msgstr "قبلی"
 
-#: .\templates\cafe\menu.html:39
+#: .\templates\cafe\menu.html:46 .\templates\cafe\tables.html:35
 msgid "Page"
 msgstr "صفحه"
 
-#: .\templates\cafe\menu.html:39
+#: .\templates\cafe\menu.html:46 .\templates\cafe\tables.html:35
 msgid "of"
 msgstr "از"
 
-#: .\templates\cafe\menu.html:43
+#: .\templates\cafe\menu.html:50 .\templates\cafe\tables.html:39
 msgid "Next"
 msgstr "بعدی"
 
-#: .\templates\cafe\menu.html:44
+#: .\templates\cafe\menu.html:51 .\templates\cafe\tables.html:40
 msgid "Last"
 msgstr "آخرین"
+
+#: .\templates\cafe\tables.html:7
+msgid "Tables"
+msgstr "میزها"
+
+#: .\templates\cafe\tables.html:13
+msgid "Table Number"
+msgstr "شماره میز"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:7
 msgid "Messages"

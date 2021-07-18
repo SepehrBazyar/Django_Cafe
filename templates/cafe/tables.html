@@ -4,32 +4,21 @@
 <html dir="auto">
 <head>
     <meta charset="UTF-8">
-    <title>{% trans "Menu" %}</title>
+    <title>{% trans "Tables" %}</title>
     <link rel="stylesheet" href="{% static 'cafe/css/menu.css' %}">
 </head>
 <body>
-    <!-- Tables List -->
-    <div style="text-align: center;">
-        <span>
-            <a href="tables/">{% trans "New Order" %}</a>
-        </span>
-    </div>
-
     <table>
         <tr>
-            <th>#</th>
-            <th>{% trans "Name" %}</th>
-            <th>{% trans "Price" %}($)</th>
-            <th>{% trans "Discount" %}(%)</th>
-            <th>{% trans "Category" %}</th>
+            <th>{% trans "Table Number" %}</th>
+            <th>{% trans "Name of Table" %}</th>
+            <th>{% trans "Status" %}</th>
         </tr>
-        {% for item in items %}
+        {% for table in tables %}
             <tr>
-                <td>{{ forloop.counter }}</td>
-                <td><a href="media/{{ item.image }}">{{ item.title }}</a></td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.discount }}</td>
-                <td><a href="category/{{ item.category.title_en }}">{{ item.category.title }}</a></td>
+                <td>{{ table.id }}</td>
+                <td>{{ table.table_name }}</td>
+                <td>{{ table.status_name }}</td>
             </tr>
         {% endfor %}
     </table>
