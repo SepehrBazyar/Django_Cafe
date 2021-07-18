@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-18 17:28+0430\n"
+"POT-Creation-Date: 2021-07-19 01:12+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,7 +91,7 @@ msgid "Please Upload Picture of Item for Show in Detail Page"
 msgstr "لطفا عکسی برای نمایش این محصول بارگذاری نمایید"
 
 #: .\cafe\models.py:59 .\cafe\models.py:124 .\order\models.py:26
-#: .\order\models.py:52 .\templates\cafe\tables.html:16
+#: .\order\models.py:66 .\templates\cafe\tables.html:21
 msgid "Status"
 msgstr "وضعیت"
 
@@ -99,11 +99,11 @@ msgstr "وضعیت"
 msgid "Status of Item Available or Unavailable"
 msgstr "وضعیت محصول موجود یا ناموجود"
 
-#: .\cafe\models.py:116
+#: .\cafe\models.py:116 .\order\models.py:110
 msgid "Empty"
 msgstr "خالی"
 
-#: .\cafe\models.py:117
+#: .\cafe\models.py:117 .\order\models.py:112 .\order\views.py:26
 msgid "Full"
 msgstr "پر"
 
@@ -115,7 +115,7 @@ msgstr "ظرفیت"
 msgid "Please Enter Capacity of Table by Person"
 msgstr "لطفا ظرفیت میز را برحسب تعداد نفرات وارد نمایید"
 
-#: .\cafe\models.py:122 .\templates\cafe\tables.html:14
+#: .\cafe\models.py:122 .\templates\cafe\tables.html:19
 msgid "Name of Table"
 msgstr "نام میز"
 
@@ -155,7 +155,7 @@ msgstr "در حال پخت"
 msgid "Serving"
 msgstr "سرو شده"
 
-#: .\order\models.py:17 .\order\models.py:43
+#: .\order\models.py:17 .\order\models.py:61
 msgid "Deleted"
 msgstr "پاک شده"
 
@@ -187,39 +187,27 @@ msgstr "لطفا تعداد سفارش خود را وارد نمایید(حدا�
 msgid "Status of Order New or Serving or ..."
 msgstr "وضعیت سفارش جدید یا سرو شده یا ..."
 
-#: .\order\models.py:41
+#: .\order\models.py:50
+msgid "Numbers"
+msgstr "عدد"
+
+#: .\order\models.py:59
 msgid "Paid"
 msgstr "پرداخت شده"
 
-#: .\order\models.py:42
+#: .\order\models.py:60
 msgid "Unpaid"
 msgstr "پرداخت نشده"
 
-#: .\order\models.py:47
+#: .\order\models.py:65 .\order\models.py:116
 msgid "Table"
 msgstr "شماره میز"
 
-#: .\order\models.py:47
+#: .\order\models.py:65
 msgid "Please Choose Table Number to Sit on it"
 msgstr "لطفا شماره میز خود را جهت نشستن انتخاب نمایید"
 
-#: .\order\models.py:48
-msgid "Total Price"
-msgstr "مجموع قیمت"
-
-#: .\order\models.py:49
-msgid "Please Enter Total of Price without Apply Discounts"
-msgstr "لطفا مجموع قیمت را بدون احتساب تخفیف ها وارد کنید"
-
-#: .\order\models.py:50
-msgid "Final Price"
-msgstr "قیمت نهایی"
-
-#: .\order\models.py:51
-msgid "Please Enter Final of Price with Apply Discounts"
-msgstr "لطفا قیمت نهایی را با درنظر گرفتن تخفیف ها جهت پرداخت وارد کنید"
-
-#: .\order\models.py:54
+#: .\order\models.py:68
 msgid "Status of Recepite Paid or Unpaid or ..."
 msgstr "وضعیت صورت حساب پرداخت شده یا پرداخت نشده یا ..."
 
@@ -243,27 +231,27 @@ msgstr "نام محصول"
 msgid "Discount"
 msgstr "درصد تخفیف"
 
-#: .\templates\cafe\menu.html:41 .\templates\cafe\tables.html:32
+#: .\templates\cafe\menu.html:41 .\templates\cafe\tables.html:37
 msgid "First"
 msgstr "نخستین"
 
-#: .\templates\cafe\menu.html:42 .\templates\cafe\tables.html:33
+#: .\templates\cafe\menu.html:42 .\templates\cafe\tables.html:38
 msgid "Previous"
 msgstr "قبلی"
 
-#: .\templates\cafe\menu.html:46 .\templates\cafe\tables.html:37
+#: .\templates\cafe\menu.html:46 .\templates\cafe\tables.html:42
 msgid "Page"
 msgstr "صفحه"
 
-#: .\templates\cafe\menu.html:46 .\templates\cafe\tables.html:37
+#: .\templates\cafe\menu.html:46 .\templates\cafe\tables.html:42
 msgid "of"
 msgstr "از"
 
-#: .\templates\cafe\menu.html:50 .\templates\cafe\tables.html:41
+#: .\templates\cafe\menu.html:50 .\templates\cafe\tables.html:46
 msgid "Next"
 msgstr "بعدی"
 
-#: .\templates\cafe\menu.html:51 .\templates\cafe\tables.html:42
+#: .\templates\cafe\menu.html:51 .\templates\cafe\tables.html:47
 msgid "Last"
 msgstr "آخرین"
 
@@ -272,10 +260,14 @@ msgid "Tables"
 msgstr "میزها"
 
 #: .\templates\cafe\tables.html:13
+msgid "Please Select Your Table Click on Numbers"
+msgstr "لطفا جهت انتخاب میز برای سفارش روی شماره آن کلیک کنید"
+
+#: .\templates\cafe\tables.html:18
 msgid "Table Number"
 msgstr "شماره میز"
 
-#: .\templates\cafe\tables.html:15
+#: .\templates\cafe\tables.html:20
 msgid "Table Capacity(Person)"
 msgstr "ظرفیت میز(نفر)"
 
@@ -1470,3 +1462,15 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:249
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Total Price"
+#~ msgstr "مجموع قیمت"
+
+#~ msgid "Please Enter Total of Price without Apply Discounts"
+#~ msgstr "لطفا مجموع قیمت را بدون احتساب تخفیف ها وارد کنید"
+
+#~ msgid "Final Price"
+#~ msgstr "قیمت نهایی"
+
+#~ msgid "Please Enter Final of Price with Apply Discounts"
+#~ msgstr "لطفا قیمت نهایی را با درنظر گرفتن تخفیف ها جهت پرداخت وارد کنید"

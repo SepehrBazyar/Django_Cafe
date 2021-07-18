@@ -16,10 +16,16 @@ class NewRecepiteView(View):
         GET Request to this Page Handled in this Method for Add Recepite
         """
         
-        tab = Table.objects.get(id=kwargs["table"])
-        recp = Recepite.objects.create(table=tab)
-        tab.change_status(_("Full"))
-        return redirect(f"/recepite/{recp.id}")
+        try:
+            tab = Table.objects.get(id=kwargs["table"])
+        except Table.DoesNotExist:
+            pass
+        else:
+            if tab.status != 'F':
+                recp = Recepite.objects.create(table=tab)
+                tab.change_status(_("Full"))
+                return redirect(f"/recepite/{recp.id}")
+        return redirect("/tables")
 
 
 class AddOrderView(View):
