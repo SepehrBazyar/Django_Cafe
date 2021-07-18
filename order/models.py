@@ -17,7 +17,7 @@ class Order(models.Model):
         'D': _("Deleted"),
     }
 
-    recepite_number = models.ForeignKey("Recepite", on_delete=models.CASCADE, related_name="orders",
+    recepite = models.ForeignKey("Recepite", on_delete=models.CASCADE, related_name="orders",
         verbose_name=_("Recepite Number"), help_text=_("Please Enter Your Recepite Number"))
     item = models.ForeignKey(MenuItem, on_delete=models.CASCADE, verbose_name=_("Menu Item"),
         help_text=_("Please Select Item to Add this Order to Your Recepite"))
@@ -29,8 +29,25 @@ class Order(models.Model):
     create_timestamp = models.DateTimeField(auto_now_add=True)
     modify_timestamp = models.DateTimeField(auto_now=True)
 
+    def change_status(self, new_status: str):
+        """
+        Change Status of Order from Cooking to Serving after Deliver to Cotumers
+        """
+
+        REVERSE = {value: key for key, value in self.STATUSES}
+        self.status = REVERSE.get(new_status, self.status)
+        self.save()
+
+    @property
+    def status_name(self) -> str:
+        """
+        Get Human Readable Status Name
+        """
+
+        return self.__class__.STATUSES[self.status]
+
     def __str__(self) -> str:
-        return f"{self.recepite_number.id}: {_(self.menu_item.title_fa)} - {self.count}"
+        return f"{self.recepite.id}: {self.item.title} - {self.count} - {self.status_name}"
 
 class Recepite(models.Model):
     """
@@ -45,15 +62,51 @@ class Recepite(models.Model):
 
     table = models.ForeignKey(Table, on_delete=models.CASCADE,
         verbose_name=_("Table"), help_text=_("Please Choose Table Number to Sit on it"))
-    total_price = models.IntegerField(default=0, verbose_name=_("Total Price"),
-        help_text=_("Please Enter Total of Price without Apply Discounts"))
-    final_price = models.IntegerField(default=0, verbose_name=_("Final Price"),
-        help_text=_("Please Enter Final of Price with Apply Discounts"))
     status = models.CharField(max_length=1, default='U', verbose_name=_("Status"),
                                 choices=[(key, value) for key, value in STATUSES.items()],
                                 help_text=_("Status of Recepite Paid or Unpaid or ..."))
     create_timestamp = models.DateTimeField(auto_now_add=True)
     modify_timestamp = models.DateTimeField(auto_now=True)
 
+    @property
+    def total_price(self) -> int:
+        """
+        Total Price of Recepite by Sum Order Price withou Apply Discounts
+        """
+        
+        total = 0
+        for order in self.orders.all():
+            total += order.count * order.item.price
+        return total
+
+    @property
+    def final_price(self) -> int:
+        """
+        Final Price of Recepite by Sum Order Price After Apply Discounts
+        """
+
+        final = 0
+        for order in self.orders.all():
+            final += order.count * order.item.final_price
+        return final
+
+    @property
+    def status_name(self) -> str:
+        """
+        Get Human Readable Status Name
+        """
+
+        return self.__class__.STATUSES[self.status]
+    
+    def change_status(self, new_status: str):
+        """
+        Change Status of Recepite after Paid Price and Empty Tables for Next Recepites
+        """
+
+        REVERSE = {value: key for key, value in self.STATUSES}
+        self.status = REVERSE.get(new_status, self.status)
+        self.save()
+
     def __str__(self) -> str:
-        return f"{self.id}) Table{self.table_number.id}: {self.total_price}$ - {self.time_stamp}"
+        tab = _("Table")
+        return f"{self.id}) {tab} {self.table.id} - {self.final_price} - {self.status_name}"

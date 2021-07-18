@@ -142,7 +142,7 @@ class Table(models.Model):
         Get Human Readable Status Name
         """
 
-        return self.STATUSES[self.status]
+        return self.__class__.STATUSES[self.status]
 
     def __str__(self) -> str:
         person = _("Person")

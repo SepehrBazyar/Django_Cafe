@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-18 15:57+0430\n"
+"POT-Creation-Date: 2021-07-18 17:28+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,7 +90,8 @@ msgstr "تصویر"
 msgid "Please Upload Picture of Item for Show in Detail Page"
 msgstr "لطفا عکسی برای نمایش این محصول بارگذاری نمایید"
 
-#: .\cafe\models.py:59 .\cafe\models.py:124 .\templates\cafe\tables.html:16
+#: .\cafe\models.py:59 .\cafe\models.py:124 .\order\models.py:26
+#: .\order\models.py:52 .\templates\cafe\tables.html:16
 msgid "Status"
 msgstr "وضعیت"
 
@@ -141,6 +142,90 @@ msgstr "درصد تخفیف می بایست مابین صفر الی صد باش
 #: .\cafe\validators.py:26
 msgid "Table Capacity Can't be Zero Negative Number"
 msgstr "ظرفیت میز نمی تواند منفی یا صفر باشد"
+
+#: .\order\models.py:14
+msgid "New"
+msgstr "جدید"
+
+#: .\order\models.py:15
+msgid "Cooking"
+msgstr "در حال پخت"
+
+#: .\order\models.py:16
+msgid "Serving"
+msgstr "سرو شده"
+
+#: .\order\models.py:17 .\order\models.py:43
+msgid "Deleted"
+msgstr "پاک شده"
+
+#: .\order\models.py:21
+msgid "Recepite Number"
+msgstr "شماره صورت حساب"
+
+#: .\order\models.py:21
+msgid "Please Enter Your Recepite Number"
+msgstr "لطفا شماره صورت حساب خود را وارد نمایید"
+
+#: .\order\models.py:22
+msgid "Menu Item"
+msgstr "محصول"
+
+#: .\order\models.py:23
+msgid "Please Select Item to Add this Order to Your Recepite"
+msgstr "لطفا محصول مورد نظر خود را جهت افزون به صورت حساب انتخاب نمایید"
+
+#: .\order\models.py:24
+msgid "Count of Order"
+msgstr "تعداد سفارش"
+
+#: .\order\models.py:25
+msgid "Please Enter Count of Order(Minimum = 1)"
+msgstr "لطفا تعداد سفارش خود را وارد نمایید(حداقل = 1)"
+
+#: .\order\models.py:28
+msgid "Status of Order New or Serving or ..."
+msgstr "وضعیت سفارش جدید یا سرو شده یا ..."
+
+#: .\order\models.py:41
+msgid "Paid"
+msgstr "پرداخت شده"
+
+#: .\order\models.py:42
+msgid "Unpaid"
+msgstr "پرداخت نشده"
+
+#: .\order\models.py:47
+msgid "Table"
+msgstr "شماره میز"
+
+#: .\order\models.py:47
+msgid "Please Choose Table Number to Sit on it"
+msgstr "لطفا شماره میز خود را جهت نشستن انتخاب نمایید"
+
+#: .\order\models.py:48
+msgid "Total Price"
+msgstr "مجموع قیمت"
+
+#: .\order\models.py:49
+msgid "Please Enter Total of Price without Apply Discounts"
+msgstr "لطفا مجموع قیمت را بدون احتساب تخفیف ها وارد کنید"
+
+#: .\order\models.py:50
+msgid "Final Price"
+msgstr "قیمت نهایی"
+
+#: .\order\models.py:51
+msgid "Please Enter Final of Price with Apply Discounts"
+msgstr "لطفا قیمت نهایی را با درنظر گرفتن تخفیف ها جهت پرداخت وارد کنید"
+
+#: .\order\models.py:54
+msgid "Status of Recepite Paid or Unpaid or ..."
+msgstr "وضعیت صورت حساب پرداخت شده یا پرداخت نشده یا ..."
+
+#: .\order\validators.py:10
+msgid "Order Count Can't be Zero pr Negative Number"
+msgstr "تعداد سفارش نمی تواند صفر یا عددی منفی باشد"
 
 #: .\templates\cafe\menu.html:7
 msgid "Menu"
