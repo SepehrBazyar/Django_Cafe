@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.views import View, generic
 from django.utils.translation import gettext as _
 from cafe.models import Category, MenuItem, Table
@@ -25,8 +25,8 @@ class CategoryView(generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        c = Category.objects.get(title_en=self.kwargs['title'])
-        return c.items.all()
+        cat = get_object_or_404(Category, title_en=self.kwargs['title'])
+        return cat.items.all()
 
 
 class TableView(generic.ListView):

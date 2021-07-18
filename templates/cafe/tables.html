@@ -12,12 +12,14 @@
         <tr>
             <th>{% trans "Table Number" %}</th>
             <th>{% trans "Name of Table" %}</th>
+            <th>{% trans "Table Capacity(Person)" %}</th>
             <th>{% trans "Status" %}</th>
         </tr>
         {% for table in tables %}
             <tr>
                 <td>{{ table.id }}</td>
                 <td>{{ table.table_name }}</td>
+                <td>{{ table.capacity }}</td>
                 <td>{{ table.status_name }}</td>
             </tr>
         {% endfor %}
