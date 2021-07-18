@@ -25,7 +25,7 @@ class NewRecepiteView(View):
                 recp = Recepite.objects.create(table=tab)
                 tab.change_status(_("Full"))
                 return redirect(f"/recepite/{recp.id}")
-        return redirect("/tables")
+        return redirect(reverse("tables"))
 
 
 class AddOrderView(View):
