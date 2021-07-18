@@ -2,13 +2,32 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from cafe.models import *
+from .validators import *
 
 # Create your models here.
 class Order(models.Model):
-    recepite_number = models.ForeignKey("Recepite", on_delete=models.CASCADE)
-    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
-    count = models.IntegerField(default=1)
-    status = models.BooleanField(default=False, blank=True)
+    """
+    Model of Order for Collect of Menu Items to One Recepite on Table
+    """
+
+    STATUSES = {
+        'N': _("New"),
+        'C': _("Cooking"),
+        'S': _("Serving"),
+        'D': _("Deleted"),
+    }
+
+    recepite_number = models.ForeignKey("Recepite", on_delete=models.CASCADE, related_name="orders",
+        verbose_name=_("Recepite Number"), help_text=_("Please Enter Your Recepite Number"))
+    item = models.ForeignKey(MenuItem, on_delete=models.CASCADE, verbose_name=_("Menu Item"),
+        help_text=_("Please Select Item to Add this Order to Your Recepite"))
+    count = models.IntegerField(default=1, verbose_name=_("Count of Order"),
+        help_text=_("Please Enter Count of Order(Minimum = 1)"), validators=[count_validator])
+    status = models.CharField(max_length=1, default='N', verbose_name=_("Status"),
+                                choices=[(key, value) for key, value in STATUSES.items()],
+                                help_text=_("Status of Order New or Serving or ..."))
+    create_timestamp = models.DateTimeField(auto_now_add=True)
+    modify_timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.recepite_number.id}: {_(self.menu_item.title_fa)} - {self.count}"
