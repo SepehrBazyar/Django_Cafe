@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 23:30+0430\n"
+"POT-Creation-Date: 2021-07-18 11:51+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,6 +125,10 @@ msgstr "لطفا نام منحصر بفردی برای شناسایی میز و�
 #: .\cafe\models.py:126
 msgid "Status of Table Empty or Full Capacity"
 msgstr "وضعیت میز پر یا خالی"
+
+#: .\cafe\models.py:140
+msgid "Person"
+msgstr "نفره"
 
 #: .\cafe\validators.py:10
 msgid "Price Value Can't be Negative Number"

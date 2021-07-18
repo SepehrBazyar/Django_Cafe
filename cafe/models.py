@@ -137,4 +137,5 @@ class Table(models.Model):
         self.save()
 
     def __str__(self) -> str:
-        return f"{self.id}) {self.table_name}({self.capacity} {_('Person')}) - {self.STATUSES[self.status]}"
+        person = _("Person")
+        return f"{self.id}) {self.table_name}({self.capacity} {person}) - {self.STATUSES[self.status]}"
