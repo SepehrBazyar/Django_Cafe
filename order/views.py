@@ -51,7 +51,18 @@ class AddOrderView(View):
     
     def post(self, request, *args, **kwargs):
         """
-        
+        Handle POST Request for Add New Order in this Recepite
         """
 
         return HttpResponse("POST ADD_ORD")
+
+
+class PaymentView(View):
+    """
+    
+    """
+
+    def get(self, request, *args, **kwargs):
+        """
+        Handle GET Request for See Details of Orders of Recepite in a Table
+        """

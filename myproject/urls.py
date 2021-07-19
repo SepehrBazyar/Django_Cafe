@@ -32,4 +32,5 @@ urlpatterns = [
     path('tables/', TableView.as_view(), name="tables"),
     path('new/<int:table>/', NewRecepiteView.as_view(), name="new_recepite"),
     path('recepite/<int:id>/', AddOrderView.as_view(), name="add_order"),
+    path('payment/<int:id>/', PaymentView.as_view(), name="payment")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -11,6 +11,14 @@
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'shared/img/python-icon.png' %}">
 </head>
 <body>
+    <center>
+        <h1>{% trans "Recepite: " %} {{ recepite.id }} [{{ recepite.status_name }}]</h1>
+    </center>
+
+    <!-- Add New Order -->
+    <div>
+    </div>
+
     <table>
         <tr>
             <th>#</th>
@@ -36,6 +44,10 @@
     <center>
         <p>{% trans "Total Price: " %} {{ recepite.total_price }} {% trans "Toman" %}</p>
         <p>{% trans "Final Price: " %} {{ recepite.final_price }} {% trans "Toman" %}</p>
+        {% if recepite.status == 'U' %}
+            <br>
+            <a href="/payment/{{ recepite.id }}">{% trans "Move to Payment Page..." %}</a>
+        {% endif %}
     </center>
 
 </body>

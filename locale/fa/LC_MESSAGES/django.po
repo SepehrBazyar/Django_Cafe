@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 14:25+0430\n"
+"POT-Creation-Date: 2021-07-19 15:25+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "موجود"
 msgid "Unavailable"
 msgstr "ناموجود"
 
-#: .\cafe\models.py:47 .\templates\cafe\menu.html:26
+#: .\cafe\models.py:47 .\templates\cafe\menu.html:28
 msgid "Category"
 msgstr "دسته بندی"
 
@@ -66,7 +66,7 @@ msgstr "لطفا عنوان محصول را به زبان فارسی وارد ن
 msgid "Enter Title of Item to English Language"
 msgstr "لطفا عنوان محصول را به زبان انگلیسی وارد نمایید"
 
-#: .\cafe\models.py:52 .\templates\cafe\menu.html:24
+#: .\cafe\models.py:52 .\templates\cafe\menu.html:26
 msgid "Price"
 msgstr "قیمت"
 
@@ -92,7 +92,7 @@ msgstr "لطفا عکسی برای نمایش این محصول بارگذاری
 
 #: .\cafe\models.py:59 .\cafe\models.py:124 .\order\models.py:26
 #: .\order\models.py:66 .\templates\cafe\tables.html:23
-#: .\templates\order\details.html:19
+#: .\templates\order\details.html:27
 msgid "Status"
 msgstr "وضعیت"
 
@@ -238,35 +238,35 @@ msgstr "فهرست"
 msgid "New Order"
 msgstr "ثبت سفارش جدید"
 
-#: .\templates\cafe\menu.html:23
+#: .\templates\cafe\menu.html:25
 msgid "Name"
 msgstr "نام محصول"
 
-#: .\templates\cafe\menu.html:25
+#: .\templates\cafe\menu.html:27
 msgid "Discount"
 msgstr "درصد تخفیف"
 
-#: .\templates\cafe\menu.html:43 .\templates\cafe\tables.html:39
+#: .\templates\cafe\menu.html:47 .\templates\cafe\tables.html:41
 msgid "First"
 msgstr "نخستین"
 
-#: .\templates\cafe\menu.html:44 .\templates\cafe\tables.html:40
+#: .\templates\cafe\menu.html:48 .\templates\cafe\tables.html:42
 msgid "Previous"
 msgstr "قبلی"
 
-#: .\templates\cafe\menu.html:48 .\templates\cafe\tables.html:44
+#: .\templates\cafe\menu.html:52 .\templates\cafe\tables.html:46
 msgid "Page"
 msgstr "صفحه"
 
-#: .\templates\cafe\menu.html:48 .\templates\cafe\tables.html:44
+#: .\templates\cafe\menu.html:52 .\templates\cafe\tables.html:46
 msgid "of"
 msgstr "از"
 
-#: .\templates\cafe\menu.html:52 .\templates\cafe\tables.html:48
+#: .\templates\cafe\menu.html:56 .\templates\cafe\tables.html:50
 msgid "Next"
 msgstr "بعدی"
 
-#: .\templates\cafe\menu.html:53 .\templates\cafe\tables.html:49
+#: .\templates\cafe\menu.html:57 .\templates\cafe\tables.html:51
 msgid "Last"
 msgstr "آخرین"
 
@@ -290,29 +290,37 @@ msgstr "ظرفیت میز(نفر)"
 msgid "Orders"
 msgstr "سفارشات"
 
-#: .\templates\order\details.html:17
+#: .\templates\order\details.html:15
+msgid "Recepite: "
+msgstr "صورت حساب: "
+
+#: .\templates\order\details.html:25
 msgid "Item Name"
 msgstr "نام محصول"
 
-#: .\templates\order\details.html:18
+#: .\templates\order\details.html:26
 msgid "Count"
 msgstr "تعداد"
 
-#: .\templates\order\details.html:20
+#: .\templates\order\details.html:28
 msgid "Price(Unit)"
 msgstr "قیمت نهایی(قیمت واحد)"
 
-#: .\templates\order\details.html:37
+#: .\templates\order\details.html:45
 msgid "Total Price: "
 msgstr "مجموع قیمت: "
 
-#: .\templates\order\details.html:37 .\templates\order\details.html:38
+#: .\templates\order\details.html:45 .\templates\order\details.html:46
 msgid "Toman"
 msgstr "تومان"
 
-#: .\templates\order\details.html:38
+#: .\templates\order\details.html:46
 msgid "Final Price: "
 msgstr "قیمت قابل پرداخت: "
+
+#: .\templates\order\details.html:48
+msgid "Move to Payment Page..."
+msgstr "انتقال به صفحه پرداخت..."
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:7
 msgid "Messages"
