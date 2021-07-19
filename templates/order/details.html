@@ -13,6 +13,10 @@
 <body>
     <center>
         <h1>{% trans "Recepite: " %} {{ recepite.id }} [{{ recepite.status_name }}]</h1>
+        <p>
+            {{ recepite.create_timestamp }}<br><br>
+            <b>{% trans "Table Number: " %} {{ recepite.table.id }}</b>
+        </p>
     </center>
 
     <!-- Add New Order for Unpaid Recepites -->
@@ -27,7 +31,7 @@
                     {% endfor %}
                 </select>
                 <label for="count">{% trans "Count of Order: " %}</label>
-                <input type="number" name="count" min="1" default="1">
+                <input type="number" name="count" min="1" value="1">
                 <input type="submit" value="{% trans "Submit" %}">
             </form>
         </center>

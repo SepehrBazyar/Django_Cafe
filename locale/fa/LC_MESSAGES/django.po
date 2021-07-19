@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-19 16:13+0430\n"
+"POT-Creation-Date: 2021-07-19 21:57+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "لطفا عکسی برای نمایش این محصول بارگذاری
 
 #: .\cafe\models.py:59 .\cafe\models.py:124 .\order\models.py:26
 #: .\order\models.py:66 .\templates\cafe\tables.html:23
-#: .\templates\order\details.html:43
+#: .\templates\order\details.html:47
 msgid "Status"
 msgstr "وضعیت"
 
@@ -104,7 +104,7 @@ msgstr "وضعیت محصول موجود یا ناموجود"
 msgid "Empty"
 msgstr "خالی"
 
-#: .\cafe\models.py:117 .\order\models.py:112 .\order\views.py:26
+#: .\cafe\models.py:117 .\order\models.py:112 .\order\views.py:27
 msgid "Full"
 msgstr "پر"
 
@@ -192,7 +192,7 @@ msgstr "وضعیت سفارش جدید یا سرو شده یا ..."
 msgid "Numbers"
 msgstr "عدد"
 
-#: .\order\models.py:59 .\order\views.py:77
+#: .\order\models.py:59 .\order\views.py:82
 msgid "Paid"
 msgstr "پرداخت شده"
 
@@ -294,43 +294,47 @@ msgstr "سفارشات"
 msgid "Recepite: "
 msgstr "صورت حساب: "
 
-#: .\templates\order\details.html:23
+#: .\templates\order\details.html:17
+msgid "Table Number: "
+msgstr "شماره میز: "
+
+#: .\templates\order\details.html:27
 msgid "Product Name: "
 msgstr "نام محصول: "
 
-#: .\templates\order\details.html:29
+#: .\templates\order\details.html:33
 msgid "Count of Order: "
 msgstr "تعداد سفارش: "
 
-#: .\templates\order\details.html:31
+#: .\templates\order\details.html:35
 msgid "Submit"
 msgstr "ثبت"
 
-#: .\templates\order\details.html:41
+#: .\templates\order\details.html:45
 msgid "Item Name"
 msgstr "نام محصول"
 
-#: .\templates\order\details.html:42
+#: .\templates\order\details.html:46
 msgid "Count"
 msgstr "تعداد"
 
-#: .\templates\order\details.html:44
+#: .\templates\order\details.html:48
 msgid "Price(Unit)"
 msgstr "قیمت نهایی(قیمت واحد)"
 
-#: .\templates\order\details.html:61
+#: .\templates\order\details.html:65
 msgid "Total Price: "
 msgstr "مجموع قیمت: "
 
-#: .\templates\order\details.html:61 .\templates\order\details.html:62
+#: .\templates\order\details.html:65 .\templates\order\details.html:66
 msgid "Toman"
 msgstr "تومان"
 
-#: .\templates\order\details.html:62
+#: .\templates\order\details.html:66
 msgid "Final Price: "
 msgstr "قیمت قابل پرداخت: "
 
-#: .\templates\order\details.html:65
+#: .\templates\order\details.html:69
 msgid "Move to Payment Page..."
 msgstr "انتقال به صفحه پرداخت..."
 

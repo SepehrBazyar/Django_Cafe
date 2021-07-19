@@ -32,26 +32,5 @@
         {% endfor %}
     </table>
 
-    <br>
-
-    <!-- Pagination -->
-    <div style="text-align: center;">
-        <span>
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; {% trans "First" %}</a>
-                <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; {% trans "Previous" %}</a>
-            {% endif %}
-
-            <span>
-                {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}
-            </span>
-
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">{% trans "Next" %} &rsaquo;</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last" %} &raquo;</a>
-            {% endif %}
-        </span>
-    </div>
-
 </body>
 </html>

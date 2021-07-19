@@ -13,7 +13,7 @@ class MenuView(generic.ListView):
     model = MenuItem
     template_name = "cafe/menu.html"
     context_object_name = "items"
-    paginate_by = 10
+    paginate_by = 5
 
 
 class CategoryView(generic.ListView):
@@ -37,7 +37,6 @@ class TableView(generic.ListView):
 
     template_name = "cafe/tables.html"
     context_object_name = "tables"
-    paginate_by = 10
 
     def get_queryset(self):
         return Table.objects.filter(status="T")
