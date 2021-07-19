@@ -30,15 +30,21 @@ class NewRecepiteView(View):
 
 class AddOrderView(View):
     """
-
+    View for See Orders of a Recepite and Edit it Add or Delete or ...
     """
 
     def get(self, request, *args, **kwargs):
         """
-        
+        Handle GET Request for See Details of Orders of Recepite in a Table
         """
 
-        return HttpResponse("GET ADD_ORD")
+        try:
+            recp = Recepite.objects.get(id=kwargs["id"])
+        except Recepite.DoesNotExist:
+            return render(request, "404.html", status=404)
+        else:
+            orders = recp.orders.all()
+            return render(request, "order/details.html", {"orders": orders})
     
     def post(self, request, *args, **kwargs):
         """

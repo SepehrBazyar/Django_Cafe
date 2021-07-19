@@ -1,0 +1,30 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html dir="auto">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Orders" %}</title>
+    <link rel="stylesheet" href="{% static 'shared/css/style.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'shared/img/python-icon.png' %}">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>{% trans "Item Name" %}</th>
+            <th>{% trans "Count" %}</th>
+            <th>{% trans "Status" %}</th>
+        </tr>
+        {% for order in orders %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ order.item.title }}</td>
+                <td>{{ order.count }}</td>
+                <td>{{ order.status_name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
