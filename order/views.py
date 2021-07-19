@@ -57,7 +57,11 @@ class AddOrderView(View):
         Handle POST Request for Add New Order in this Recepite
         """
 
-        return HttpResponse("POST ADD_ORD")
+        posts = request.POST
+        recp = Recepite.objects.get(id=kwargs["id"])
+        item = MenuItem.objects.get(title_en=posts["item"])
+        order = Order.objects.create(recepite=recp, item=item, count=posts["count"])
+        return redirect(f"/recepite/{recp.id}")
 
 
 class PaymentView(View):

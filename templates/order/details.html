@@ -23,7 +23,7 @@
                 <label for="item">{% trans "Product Name: " %}</label>
                 <select name="item" id="item">
                     {% for item in items %}
-                        <option value="{{ item.title }}">{{ item.title }}</option>
+                        <option value="{{ item.title_en }}">{{ item.title }}</option>
                     {% endfor %}
                 </select>
                 <label for="count">{% trans "Count of Order: " %}</label>
