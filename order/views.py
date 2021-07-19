@@ -59,10 +59,18 @@ class AddOrderView(View):
 
 class PaymentView(View):
     """
-    
+    View for Payment Price of Recepite and Change Status it to Paid
     """
 
     def get(self, request, *args, **kwargs):
         """
         Handle GET Request for See Details of Orders of Recepite in a Table
         """
+
+        try:
+            recp = Recepite.objects.get(id=kwargs["id"])
+        except Recepite.DoesNotExist:
+            return redirect(reverse("menu"))
+        else:
+            recp.change_status(_("Paid"))
+            return redirect(f"/recepite/{recp.id}")
