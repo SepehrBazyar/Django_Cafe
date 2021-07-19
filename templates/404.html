@@ -1,10 +1,12 @@
-<!doctype html>
-<html lang="en">
-
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html dir="auto">
 <head>
-  <meta charset="utf-8">
-  <title>Page Not Found</title>
+  <meta charset="UTF-8">
+  <title>{% trans "Page Not Found" %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'shared/img/python-icon.png' %}">
   <style>
     * {
       line-height: 1.2;
@@ -52,11 +54,8 @@
     }
   </style>
 </head>
-
 <body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
+  <h1>{% trans "Page Not Found )):" %}</h1>
+  <p>{% trans "Sorry, but the page you were trying to view does not exist." %}</p>
 </body>
-
 </html>
-<!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->

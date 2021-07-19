@@ -44,7 +44,10 @@ class AddOrderView(View):
             return render(request, "404.html", status=404)
         else:
             orders = recp.orders.all()
-            return render(request, "order/details.html", {"orders": orders})
+            return render(request, "order/details.html", {
+                "orders": orders,
+                "recepite": recp,
+            })
     
     def post(self, request, *args, **kwargs):
         """

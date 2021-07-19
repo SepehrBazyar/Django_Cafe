@@ -1,10 +1,12 @@
 {% load i18n %}
 {% load static %}
+{% load mathfilters %}
 <!DOCTYPE html>
 <html dir="auto">
 <head>
     <meta charset="UTF-8">
     <title>{% trans "Orders" %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'shared/css/style.css' %}">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'shared/img/python-icon.png' %}">
 </head>
@@ -15,6 +17,7 @@
             <th>{% trans "Item Name" %}</th>
             <th>{% trans "Count" %}</th>
             <th>{% trans "Status" %}</th>
+            <th>{% trans "Price(Unit)" %}</th>
         </tr>
         {% for order in orders %}
             <tr>
@@ -22,9 +25,18 @@
                 <td>{{ order.item.title }}</td>
                 <td>{{ order.count }}</td>
                 <td>{{ order.status_name }}</td>
+                <td>{{ order.item.final_price|mul:order.count }} ({{ order.item.final_price }})</td>
             </tr>
         {% endfor %}
     </table>
+
+    <br><hr>
+
+    <!-- Price Information -->
+    <center>
+        <p>{% trans "Total Price: " %} {{ recepite.total_price }} {% trans "Toman" %}</p>
+        <p>{% trans "Final Price: " %} {{ recepite.final_price }} {% trans "Toman" %}</p>
+    </center>
 
 </body>
 </html>
