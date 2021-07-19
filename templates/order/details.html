@@ -15,10 +15,26 @@
         <h1>{% trans "Recepite: " %} {{ recepite.id }} [{{ recepite.status_name }}]</h1>
     </center>
 
-    <!-- Add New Order -->
-    <div>
-    </div>
+    <!-- Add New Order for Unpaid Recepites -->
+    {% if recepite.status == 'U' %}
+        <center>
+            <form method="post">
+                {% csrf_token %}
+                <label for="item">{% trans "Product Name: " %}</label>
+                <select name="item" id="item">
+                    {% for item in items %}
+                        <option value="{{ item.title }}">{{ item.title }}</option>
+                    {% endfor %}
+                </select>
+                <label for="count">{% trans "Count of Order: " %}</label>
+                <input type="number" name="count" min="1" default="1">
+                <input type="submit" value="{% trans "Submit" %}">
+            </form>
+        </center>
+        <br>
+    {% endif %}
 
+    <!-- Detail of Orders -->
     <table>
         <tr>
             <th>#</th>

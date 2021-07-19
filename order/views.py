@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils.translation import gettext as _
 from order.models import Order, Recepite
 from cafe.models import Category, MenuItem, Table
+from time import sleep
 
 # Create your views here.
 class NewRecepiteView(View):
@@ -44,9 +45,11 @@ class AddOrderView(View):
             return render(request, "404.html", status=404)
         else:
             orders = recp.orders.all()
+            items = MenuItem.objects.all()
             return render(request, "order/details.html", {
                 "orders": orders,
                 "recepite": recp,
+                "items": items,
             })
     
     def post(self, request, *args, **kwargs):
@@ -73,4 +76,5 @@ class PaymentView(View):
             return redirect(reverse("menu"))
         else:
             recp.change_status(_("Paid"))
+            sleep(2)
             return redirect(f"/recepite/{recp.id}")
