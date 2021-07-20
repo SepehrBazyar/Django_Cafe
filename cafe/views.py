@@ -26,8 +26,7 @@ class CategoryView(generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        cat = get_object_or_404(Category, title_en=self.kwargs['title'])
-        return cat.items.all()
+        return MenuItem.filter_by_category(self.kwargs['title'])
 
 
 class TableView(generic.ListView):

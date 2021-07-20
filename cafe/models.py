@@ -103,6 +103,14 @@ class MenuItem(models.Model):
         self.status = REVERSE.get(new_status, self.status)
         self.save()
 
+    @classmethod
+    def filter_by_category(cls, category: str):
+        """
+        Filter Menu Items by Category name Method Get Name String and Return Query Set
+        """
+
+        return cls.objects.filter(category__title_en=category)
+
     def __str__(self) -> str:
         return f"{self.title}: {self.final_price}$"
 
