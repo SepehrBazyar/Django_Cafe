@@ -110,6 +110,14 @@ class MenuItem(models.Model):
         """
 
         return cls.objects.filter(category__title_en=category)
+    
+    @classmethod
+    def maximum_price(cls):
+        """
+        Method for Get Item with Maximum Price in All Menu Item without Apply Discount
+        """
+
+        return cls.objects.aggregate(models.Max('price'))["price__max"]
 
     def __str__(self) -> str:
         return f"{self.title}: {self.final_price}$"
