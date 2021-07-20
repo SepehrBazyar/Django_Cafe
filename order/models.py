@@ -112,6 +112,22 @@ class Recepite(models.Model):
             self.table.change_status(_("Full"))
         self.save()
 
+    @classmethod
+    def sum_income(cls, today: bool = False):
+        """
+        Class Method to Get Sum of Incoming Money from Recepite Final Prices
+        """
+
+        res = 0
+        for recepite in cls.objects.all():
+            if today:
+                rt, nt = recepite.create_timestamp, timezone.now()
+                if rt.day == nt.day and rt.month == nt.month and rt.year == nt.year:
+                    res += recepite.final_price
+            else:
+                res += recepite.final_price
+        return res
+
     def __str__(self) -> str:
         tab = _("Table")
         return f"{self.id}) {tab} {self.table.id} - {self.final_price}$ - {self.status_name}"
