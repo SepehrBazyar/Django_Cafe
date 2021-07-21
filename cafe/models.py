@@ -1,7 +1,7 @@
-from functools import cached_property
-from django.db import models
+from django.db import models, connection
 from django.utils import timezone
 from django.utils.translation import gettext as _
+from typing import List
 from myproject.settings import LANGUAGE_CODE, MEDIA_ROOT
 from .validators import *
 
@@ -118,6 +118,23 @@ class MenuItem(models.Model):
         """
 
         return cls.objects.aggregate(models.Max('price'))["price__max"]
+
+    @classmethod
+    def best_sellers(cls, count: int) -> List[tuple]:
+        """
+        Class Method Run Raw SQL Query for Find Best Sellers Menu Items
+        """
+
+        cursor = connection.cursor()
+        cursor.execute("""SELECT cafe_menuitem.id, SUM(order_order.count) AS Sellers
+FROM order_order INNER JOIN cafe_menuitem ON order_order.item_id = cafe_menuitem.id
+GROUP BY cafe_menuitem.id ORDER BY Sellers DESC;""")
+
+        bests = cursor.fetchall()[: count]
+        result = []
+        for item in bests:
+            result.append((cls.objects.get(id=item[0]), item[1]))
+        return result
 
     def __str__(self) -> str:
         return f"{self.title}: {self.final_price}$"
